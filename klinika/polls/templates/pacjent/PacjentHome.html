@@ -1,0 +1,259 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block content %}
+<style>
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .image-container {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .image-container .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-wrap: break-word;
+    flex-direction: column;
+  }
+
+  .image-container:hover .caption {
+    opacity: 1;
+  }
+  .section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+  .caption p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .caption p:not(:first-child) {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .testimonial-container {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .testimonial-item {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .testimonial-item img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-item p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+
+.carousel-container {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 600px; /* Możesz dostosować tę wartość według swoich preferencji */
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+.carousel-inner {
+  width: 100%; /* Ustawia szerokość karuzeli na 100% */
+}
+.carousel-caption h5, .carousel-caption p {
+  margin: 0;
+}
+.carousel-container .testimonial-item img {
+  border-radius: 0;
+}
+.carousel-container .testimonial-item img {
+  object-fit: contain;
+  height: 10%;
+}
+</style>
+
+<div class="section">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>    </h1>
+      <hr>
+        <div class="center-content">
+      <h3>POZNAJ NASZYCH LEKARZY</h3>
+        </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="image-container">
+          <img src="{% static 'image/Olaf.png' %}" class="img-fluid" alt="Lekarz 1">
+          <div class = "caption">
+            <p><span style="font-size:20px;">Olaf Bałwan</span></p>
+            <p>Jego specjalizacją jest leczenie odmrożeń i innych urazów wynikających z ekstremalnych warunków.
+              To specjalista od krioterapii. Olaf pracuje nad badaniami nad wpływem zmian klimatycznych na zdrowie zwierząt zimowych.</p>
+          </div>
+
+        </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="image-container">
+          <img src="{% static 'image/maja1.jpg' %}" class="img-fluid" alt="Lekarz 2">
+          <div class = "caption">
+            <p><span style="font-size:20px;"> Maja Pszczółka</span></p>
+            <p>Jej delikatne podejście, empatia i zdolność do komunikacji czynią ją doskonałym weterynarzem dla drobnych zwierząt.
+              Maja stara się edukować ludzi o znaczeniu pszczół dla ekosystemu i roli, jaką pełnią w zapylaniu roślin.</p>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+        <div class="image-container">
+          <img src="{% static 'image/kubus1.jpg' %}" class="img-fluid" alt="Lekarz 3">
+          <div class = "caption">
+            <p><span style="font-size:20px;"> Jakub Puchatek</span></p>
+            <p>Jego naturalne instynkty i intuicja pozwalają mu szybko rozpoznać potrzeby i problemy zwierząt, oraz dostosować
+              odpowiednie leczenie i opiekę.</p>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+        <div class="image-container">
+          <img src="{% static 'image/dolittle.jpeg' %}" class="img-fluid" alt="Lekarz 4">
+          <div class = "caption">
+            <p><span style="font-size:20px;"> John Dolittle</span></p>
+            <p>Jego specjalizacja polega na diagnozowaniu i leczeniu zwierząt, wykorzystując unikalną umiejętność komunikacji międzygatunkowej.
+            Jego praktyka weterynaryjna obejmuje wszystkie gatunki, od małych ssaków po egzotyczne ptaki i gadające papugi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<div class="section">
+<div class="row row-cols-1 row-cols-md-2 g-4 card-container">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'image/add.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Lista pacjentów</h5>
+        <p class="card-text">Możesz wyszukać tutaj swojego pupila</p>
+        <a href="{% url 'pacjent_lista_solo'  %}" class="btn btn-primary"><i class="bi bi-building-add"></i> </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'image/add3.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Lista rachunków</h5>
+        <p class="card-text">Możesz wyszukać tutaj swój rachunek</p>
+        <a href="{% url 'rachunek'  %}" class="btn btn-primary"><i class="bi bi-building-fill-gear"></i> </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+        <div class="center-content">
+          <h3>POZNAJ OPINIE NASZYCH PACJENTÓW</h3>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+<div class="carousel-container">
+  <div id="carouselExampleDark1" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="4000">
+        <div class="testimonial-item">
+          <img src="{% static 'image/beza2.jpg' %}" class="d-block w-100" >
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Beza</h5>
+            <h6>Uwielbiam spać na rączkach pana doktora Johna.</h6>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <div class="testimonial-item">
+          <img src="{% static 'image/chomik.jpg' %}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Kibic</h5>
+            <p>Tutaj jest zawsze tyle do odkrycia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="4000">
+        <div class="testimonial-item">
+          <img src="{% static 'image/reksio.jpg' %}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Reksio</h5>
+            <p>Ktoś zawsze przytrzyma główkę do spania.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

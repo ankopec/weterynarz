@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+{% load moje_tagi %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'image/tlo.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+    <h1>Edytuj pacjenta</h1>
+
+    <form method="post">
+        <table>
+            {% bootstrap_form formularz layout='horizontal' %}
+        </table>
+        {% buttons %}
+            <input class="btn btn-primary" type="submit" value="Edytuj!">
+        {% endbuttons %}
+    </form>
+
+
+{% endblock %}

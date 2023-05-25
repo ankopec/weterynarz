@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+.card-container {
+  margin-top: 2cm;
+}
+</style>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 card-container">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'image/add.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Dodaj pacjenta</h5>
+        <p class="card-text">Obowiązkowo należy dodać pacjenta podczas pierwszej wizyty</p>
+        <a href="{% url 'pacjent_dodaj'  %}" class="btn btn-primary"><i class="bi bi-building-add"></i> </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'image/add3.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Edytuj dane pacjenta</h5>
+        <p class="card-text">Możliwość edycji karty pacjenta. Wytyczne dla lekarza...</p>
+        <a href="{% url 'pacjent_lista_edytuj'  %}" class="btn btn-primary"><i class="bi bi-building-fill-gear"></i> </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'image/add1.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Usuń pacjenta</h5>
+        <p class="card-text">Zakładka do usuwania pacjenta z bazy danych</p>
+        <a href="{% url 'pacjent_lista_usun'  %}" class="btn btn-primary"><i class="bi bi-building-fill-dash"></i> </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div>
+    {% for home in rooms %}
+    <div>
+      <h5>{{ home.id }}--<a href="{{ home.id }}">{{ home.name }}</a></h5>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+.card-container {
+  margin-top: 2cm;
+}
+</style>
+<div class="card text-center">
+  <h5 class="card-header">Wystaw rachunek</h5>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <a href="{% url 'dodaj_rachunek'  %}" class="btn btn-primary">Wystaw</a>
+  </div>
+</div>
+
+{% endblock content %}

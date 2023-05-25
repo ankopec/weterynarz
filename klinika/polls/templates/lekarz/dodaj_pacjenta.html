@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+{% load moje_tagi %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url("{% static 'image/tlo.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .centered-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .gray-button {
+        background-color: gray;
+        color: white;
+    }
+</style>
+<div class="container">
+  <div class="row">
+<h1>Dodawanie pacjenta</h1>
+
+<form method="post">
+    <table>
+        {% bootstrap_form formularz layout='horizontal' %}
+    </table>
+    <div class="centered-button">
+        {% buttons %}
+            <input class="btn btn-primary gray-button" type="submit" value="Dodaj!">
+        {% endbuttons %}
+    </div>
+</form>
+</div>
+</div>
+
+{% endblock %}

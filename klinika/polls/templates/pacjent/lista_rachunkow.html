@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% load moje_tagi %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukaj Rachunek</title>
+
+     <style>
+    body {
+        background-image: url("{% static 'image/tlo.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+      .section {
+         margin-top: 50px;
+        margin-bottom: 50px;
+        }
+</style>
+</head>
+<div class="section">
+<div class="container">
+  <div class="row">
+    <h1>Rachunki:</h1>
+    <div class="section">
+    <form>
+        <table>
+            {% bootstrap_form formularz_wyszukiwania layout='horizontal' %}
+        </table>
+        <div class="section">
+        <button class="btn btn-primary" type="submit">Wyszukaj</button>
+        <button class="btn btn-default" type="reset">Wyczyść</button>
+    </form>
+    <div class="section">
+    <table class="table table-striped">
+        <tr>
+            <th>LP.</th>
+            <th>Pacjent </th>
+            <th>Weterynarz </th>
+        </tr>
+        {% for rachunek in strona_rachunkow %}
+            <tr>
+                <td>{{ forloop.counter}}</td>
+                <td>{{ rachunek.pacjenci}}</td>
+                <td>{{rachunek.weterynarz}}</td>
+
+                    <td>
+                     {% if rachunek.plik_dicom %}
+                        <a href="{% url 'pacjent-pobierz_rachunek' rachunek.id %}">Pobierz DICOM</a>
+                     {% endif %}
+                 </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if strona_rachunkow.has_previous %}
+            <a href="?{% param_replace strona=1 %}">&laquo; Pierwsza</a>
+            <a href="?{% param_replace strona=strona_rachunkow.previous_page_number  %}">Poprzednia</a>
+        {% endif %}
+
+        <span class="current">
+            Strona {{ strona_rachunkow.number }} z {{ strona_rachunkow.paginator.num_pages }}.
+        </span>
+
+        {% if strona_rachunkow.has_next %}
+            <a href="?{% param_replace strona=strona_rachunkow.next_page_number  %}">Następna</a>
+            <a href="?{% param_replace strona=strona_rachunkow.paginator.num_pages  %}">Ostatnia &raquo;</a>
+        {% endif %}
+
+
+    </span>
+    </div>
+
+
+
+{% endblock %}

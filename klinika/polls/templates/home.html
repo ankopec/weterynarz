@@ -1,0 +1,130 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<style>
+        .cookie-modal {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .cookie-modal__button {
+            margin-top: 10px;
+        }
+        .card-container {
+             margin-top: 2cm;
+}
+        .card-container2 {
+             margin-top: 10cm;
+}
+        .section {
+            margin-top: 50px;
+            margin-bottom: 50px;
+}
+        .carousel-container {
+            max-width: 600px; /* Możesz dostosować tę wartość według swoich preferencji */
+            margin: 0 auto;
+}
+
+    </style>
+<div class="cookie-modal">
+        Ta strona korzysta ze smaczków. Kliknij przycisk poniżej, aby zaakceptować pliki smaczków.
+        <button class="cookie-modal__button btn btn-primary">Akceptuj</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var acceptButton = document.querySelector('.cookie-modal__button');
+            acceptButton.addEventListener('click', function() {
+                // Zapisz informację o akceptacji plików cookie
+                // Możesz tutaj wykorzystać np. localStorage lub ciasteczka
+                // Np. localStorage.setItem('cookiesAccepted', 'true');
+
+                // Ukryj modal
+                var cookieModal = document.querySelector('.cookie-modal');
+                cookieModal.style.display = 'none';
+            });
+        });
+    </script>
+<div class="section">
+<div class="container2">
+<div class="container">
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static 'image/kl1.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4>Doświadczeni lekarze</h4>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'image/kl2.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4>Świetny kontakt ze zwierzętami</h4>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'image/kl3.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h4>Sami zadowoleni pacjenci</h4>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+ <hr class="featurette-divider">
+   <div class="container">
+   <div class="section">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">Nowoczesny całodobowy szpital dla zwierząt. <span class="text-body-secondary">Pacjentami naszego szpitala są zwierzęta wymagające intensywnej terapii.</span></h2>
+        <p class="lead">W szpitalu przebywają więc zwierzęta po ciężkich zabiegach operacyjnych, z ciężkimi zaburzeniami ogólnoustrojowymi, pacjenci leczeni przewlekle. Dysponujemy odpowiednim sprzętem takim jak: pompy infuzyjne, kardiomonitory, szpitalny aparat USG, klatka tlenowa i inne, co pozwala nam prowadzić m.in. terapię przypadków kardiologicznych, psów po skręcie żołądka, tlenoterapię, leczenie ostrej mocznicy, zaburzeń endokrynologicznych np.cukrzycy. Pacjenci w szpitalu przez całą dobę są pod opieką lekarza oraz technika weterynarii.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="{% static 'image/wet2.jpg' %}" role="img"  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em"></text></img>
+      </div>
+    </div>
+
+<div class="section">
+<hr class="featurette-divider">
+<div class="alert alert-primary" role="alert">
+  Zadbaj o swoje zwierzę i umów wizytę w najlepszej klinice w Polsce!
+</div>
+
+<h3>
+  Specjalistyczna opieka weterynaryjna 24h
+  <small class="text-body-secondary">Wiodącymi działami w naszej lecznicy są kardiologia, stomatologia, chirurgia i endokrynologia</small>
+</h3>
+<p class="lead"> Oprócz normalnej działalności usługowo klinicznej prowadzimy w ciągu roku staże lekarskie i praktyki studenckie oraz podyplomowe szkolenia lekarzy weterynarii. W trosce o dobro naszych pacjentów stale podnosimy kwalifikacje personelu lekarskiego i technicznego uczestnicząc w licznych szkoleniach i kursach oraz zdobywając tytuły specjalisty.</p>
+ <hr class="featurette-divider">
+
+
+
+    <div>
+        <div>
+            {% for home in rooms %}
+                <div>
+                    <h5>{{ home.id }}--<a href="{{ home.id }}">{{ home.name }}</a></h5>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

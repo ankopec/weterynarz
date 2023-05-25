@@ -1,0 +1,95 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block content %}
+<style>
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    }
+
+  .table-container {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+</style>
+ <hr class="featurette-divider">
+
+<div class="container">
+  <div class="row">
+     <div class="center-content">
+        <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-secondary">CENNIK WETERYNARYJNY</span></h2>
+     </div>
+         <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nazwa usługi</th>
+                      <th>Cena</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr>
+                     <td>Konsultacja weterynaryjna</td>
+                     <td>100 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Badanie biochemiczne krwi</td>
+                     <td>35 zł - 300 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Badanie EKG</td>
+                     <td>50 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Badanie USG</td>
+                     <td>70 zł - 150 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Coroczne badanie kontrolne</td>
+                     <td>50 zł - 100 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Czipowanie</td>
+                     <td>50 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Czyszczenie uszu</td>
+                     <td>20 zł - 30 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Czyszczenie uzębienia</td>
+                     <td>150 zł - 200 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Drobny zabieg chirurgiczny</td>
+                     <td>150 zł - 250 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Obcięcie pazurów</td>
+                     <td>20 zł - 30 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Odrobaczanie</td>
+                     <td>10 zł - 50 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Szczepienie profilaktyczne</td>
+                     <td>50 zł - 100 zł</td>
+                 </tr>
+                 <tr>
+                     <td>Zdjęcie RTG</td>
+                     <td>50 zł </td>
+                 </tr>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+<hr class="featurette-divider">
+{% endblock content %}

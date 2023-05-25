@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+
+{% block tytul %}Dodawanie pacjenta{% endblock %}
+{% block zawartosc %}
+
+    <h1>Usuwanie pacjenta</h1>
+
+    <form method="post">
+        <table>
+            {% bootstrap_form formularz layout='horizontal' %}
+        </table>
+        {% buttons %}
+            <input class="btn btn-primary" type="submit" value="Usuń!">
+
+        {% endbuttons %}
+    </form>
+
+{% endblock %}

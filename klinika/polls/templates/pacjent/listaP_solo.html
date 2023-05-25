@@ -1,0 +1,89 @@
+{% extends 'main.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% load moje_tagi %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Usuń pacjenta</title>
+
+     <style>
+    body {
+        background-image: url("{% static 'image/tlo.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .section {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        }
+</style>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="section">
+    <h1>Pacjenci:</h1>
+    <form>
+    <div class="section">
+        <table>
+            {% bootstrap_form formularz_wyszukiwania layout='horizontal' %}
+
+
+        </table>
+        <div class="section">
+        <button class="btn btn-primary" type="submit">Wyszukaj</button>
+        <button class="btn btn-default" type="reset">Wyczyść</button>
+    </form>
+    <script>
+    function wyczyscFormularz() {
+        document.getElementById("filtr-form").reset();
+    }
+    </script>
+    <div class="section">
+    <table class="table table-striped">
+        <tr>
+            <th>LP.</th>
+            <th>Imie Pacjenta </th>
+            <th>Imie Właściciela </th>
+            <th>Nazwisko Właściciela</th>
+            <th>Gatunek</th>
+            <th>Płeć</th>
+            <th>Email</th>
+
+
+        </tr>
+        {% for pacjenci in strona_pacjentow %}
+            <tr>
+                <td>{{ forloop.counter}}</td>
+                <td>{{ pacjenci.imie_pacjenta}}</td>
+                <td>{{pacjenci.imie_własciciela}}</td>
+                <td>{{ pacjenci.nazwisko_własciciela}}</td>
+                <td>{{ pacjenci.gatunek }}</td>
+                <td>{{ pacjenci.plec }}</td>
+                <td>{{ pacjenci.email }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if strona_pacjentow.has_previous %}
+            <a href="?{% param_replace strona=1 %}">&laquo; Pierwsza</a>
+            <a href="?{% param_replace strona=strona_pacjentow.previous_page_number  %}">Poprzednia</a>
+        {% endif %}
+
+        <span class="current">
+            Strona {{ strona_pacjentow.number }} z {{ strona_pacjentow.paginator.num_pages }}.
+        </span>
+
+        {% if strona_pacjentow.has_next %}
+            <a href="?{% param_replace strona=strona_pacjentow.next_page_number  %}">Następna</a>
+            <a href="?{% param_replace strona=strona_pacjentow.paginator.num_pages  %}">Ostatnia &raquo;</a>
+        {% endif %}
+    </span>
+    </div>
+
+
+{% endblock %}
